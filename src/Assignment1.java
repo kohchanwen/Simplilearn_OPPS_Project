@@ -65,7 +65,7 @@ public class Assignment1 {
 
 	private static void option2() {
 		String[] options = { "2.1) Add file to directory", "2.2) Delete a specific file",
-				"2.3) Search for specific file" };
+				"2.3) Search for specific file", "2.4) Return to main context" };
 		Scanner scanner = new Scanner(System.in);
 		double option;
 		printQ2Menu(options);
@@ -77,6 +77,8 @@ public class Assignment1 {
 				option2_2();
 			} else if (option == 2.3) {
 				option2_3();
+			} else if (option == 2.4) {
+				option2_4();
 			} else {
 				System.out.println("Please enter correct option");
 				option2();
@@ -156,26 +158,30 @@ public class Assignment1 {
 			} else {
 				System.out.println("File does not exists.");
 			}
-
-			boolean choice = true;
-
-			while (choice) {
-				System.out.println("Do you wish to go back to main menu? Y/N");
-				choice = scanner.nextLine().equalsIgnoreCase("Y") ? true : false;
-
-				if (choice) {
-					System.out.println(choice);
-					Assignment1.main(new String[0]);
-					break;
-				} else {
-					option2();
-					break;
-				}
-			}
-
+			option2();
 		} catch (Exception ex) {
 			ex.printStackTrace();
 		}
+	}
+
+	private static void option2_4() {
+		Scanner scanner = new Scanner(System.in);
+		boolean choice = true;
+
+		while (choice) {
+			System.out.println("Do you wish to go back to main menu? Y/N");
+			choice = scanner.nextLine().equalsIgnoreCase("Y") ? true : false;
+
+			if (choice) {
+				System.out.println(choice);
+				Assignment1.main(new String[0]);
+				break;
+			} else {
+				option2();
+				break;
+			}
+		}
+
 	}
 
 }
